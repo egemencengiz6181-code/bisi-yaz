@@ -4,56 +4,54 @@ import { Container, SectionHeader } from './UI'
 
 const programs = [
   {
-    age: '4-6 Yaş',
-    title: 'Mini Kaşifler',
+    age: 'Ages 4–6',
+    title: 'Little Explorers',
     emoji: '🧸',
-    description: 'Oyun temelli öğrenme, yaratıcı sanat, hikâye zamanı ve temel motor beceriler.',
-    color: 'from-pink-400 to-rose-400',
-    bgColor: 'bg-pink-50',
-    borderColor: 'border-pink-200',
+    description: 'Play-based learning, creative arts, story time, and foundational motor skills.',
+    color: 'from-emerald-400 to-teal-500',
+    bgColor: 'bg-emerald-50',
+    borderColor: 'border-emerald-200',
     icon: Palette,
-    features: ['Yaratıcı Oyunlar', 'Hikâye Zamanı', 'Müzik & Dans', 'El Becerileri'],
+    features: ['Creative Play', 'Story Time', 'Music & Dance', 'Arts & Crafts'],
   },
   {
-    age: '7-9 Yaş',
-    title: 'Genç Mucitler',
+    age: 'Ages 7–9',
+    title: 'Young Inventors',
     emoji: '🔧',
-    description: 'STEM projeleri, takım sporları, İngilizce atölyeleri ve doğa keşfi.',
-    color: 'from-bisi-sky to-blue-500',
-    bgColor: 'bg-sky-50',
-    borderColor: 'border-sky-200',
+    description: 'STEM projects, team sports, English workshops and nature exploration.',
+    color: 'from-[#3D7A56] to-[#2D5A3F]',
+    bgColor: 'bg-[#EEF5F0]',
+    borderColor: 'border-[#B8DECA]',
     icon: Blocks,
-    features: ['STEM Projeleri', 'Takım Sporları', 'İngilizce', 'Doğa Keşfi'],
+    features: ['STEM Projects', 'Team Sports', 'English', 'Nature Exploration'],
   },
   {
-    age: '10-12 Yaş',
-    title: 'Süper Kodcular',
+    age: 'Ages 10–12',
+    title: 'Super Coders',
     emoji: '💻',
-    description: 'Kodlama, robotik, girişimcilik ve liderlik becerileri.',
-    color: 'from-bisi-purple to-violet-500',
-    bgColor: 'bg-purple-50',
-    borderColor: 'border-purple-200',
+    description: 'Coding, robotics, entrepreneurship and leadership skills.',
+    color: 'from-[#233256] to-[#3A5F8A]',
+    bgColor: 'bg-slate-50',
+    borderColor: 'border-slate-200',
     icon: Rocket,
-    features: ['Kodlama', 'Robotik', 'Girişimcilik', 'Liderlik'],
+    features: ['Coding', 'Robotics', 'Entrepreneurship', 'Leadership'],
   },
   {
-    age: '13-15 Yaş',
-    title: 'Gelecek Liderleri',
+    age: 'Ages 13–15',
+    title: 'Future Leaders',
     emoji: '🎓',
-    description: 'İleri düzey projeler, yabancı dil, münazara ve kariyer keşfi.',
-    color: 'from-bisi-green to-emerald-500',
-    bgColor: 'bg-green-50',
-    borderColor: 'border-green-200',
+    description: 'Advanced projects, foreign languages, debate club and career exploration.',
+    color: 'from-[#2D5A3F] to-[#233256]',
+    bgColor: 'bg-[#EEF5F0]',
+    borderColor: 'border-[#B8DECA]',
     icon: GraduationCap,
-    features: ['İleri Projeler', 'Yabancı Dil', 'Münazara', 'Kariyer Keşfi'],
+    features: ['Advanced Projects', 'Foreign Language', 'Debate Club', 'Career Exploration'],
   },
 ]
 
 const containerVariants = {
   hidden: {},
-  visible: {
-    transition: { staggerChildren: 0.15 },
-  },
+  visible: { transition: { staggerChildren: 0.15 } },
 }
 
 const cardVariants = {
@@ -63,12 +61,12 @@ const cardVariants = {
 
 export default function Programs() {
   return (
-    <section id="programlar" className="py-20 md:py-28 bg-white">
+    <section id="programlar" className="py-20 md:py-28 bg-white w-full">
       <Container>
         <SectionHeader
-          badge="🎯 Yaş Gruplarına Özel"
-          title="Her Yaşa Uygun Programlar"
-          description="Çocuğunuzun yaşına ve ilgi alanlarına göre özel olarak tasarlanmış programlarımız."
+          badge="🎯 Age-Specific Programmes"
+          title="A Programme for Every Age"
+          description="Specially designed programmes tailored to your child's age and interests."
         />
 
         <motion.div
@@ -85,33 +83,26 @@ export default function Programs() {
               whileHover={{ y: -8, scale: 1.02 }}
               className={`relative group rounded-3xl ${prog.bgColor} border ${prog.borderColor} p-6 cursor-pointer transition-shadow hover:shadow-xl`}
             >
-              {/* Age badge */}
               <div className={`inline-flex items-center gap-1 px-3 py-1 rounded-full bg-gradient-to-r ${prog.color} text-white text-xs font-bold shadow-sm mb-4`}>
                 {prog.age}
               </div>
-
-              {/* Emoji + Title */}
-              <div className="text-4xl mb-3">{prog.emoji}</div>
-              <h3 className="text-xl font-extrabold text-bisi-navy font-[family-name:var(--font-display)] mb-2">
+              <div className="text-4xl mb-3 text-center">{prog.emoji}</div>
+              <h3 className="text-xl font-extrabold text-bisi-navy font-[family-name:var(--font-display)] mb-2 text-center">
                 {prog.title}
               </h3>
-              <p className="text-sm text-gray-500 leading-relaxed mb-4">
+              <p className="text-sm text-bisi-gray leading-relaxed mb-4 text-center">
                 {prog.description}
               </p>
-
-              {/* Features */}
               <div className="space-y-2 mb-4">
                 {prog.features.map((f) => (
-                  <div key={f} className="flex items-center gap-2 text-sm text-gray-600">
-                    <div className={`w-1.5 h-1.5 rounded-full bg-gradient-to-r ${prog.color}`} />
+                  <div key={f} className="flex items-center gap-2 text-sm text-bisi-gray justify-center">
+                    <div className={`w-1.5 h-1.5 rounded-full bg-gradient-to-r ${prog.color} flex-shrink-0`} />
                     {f}
                   </div>
                 ))}
               </div>
-
-              {/* CTA */}
-              <div className="flex items-center gap-1 text-sm font-semibold text-bisi-orange group-hover:gap-2 transition-all">
-                Detayları Gör <ArrowRight className="w-4 h-4" />
+              <div className="flex items-center justify-center gap-1 text-sm font-semibold text-bisi-navy group-hover:gap-2 transition-all">
+                Learn More <ArrowRight className="w-4 h-4" />
               </div>
             </motion.div>
           ))}

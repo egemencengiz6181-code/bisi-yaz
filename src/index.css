@@ -1,32 +1,51 @@
 @import "tailwindcss";
 
 @theme {
-  --color-bisi-yellow: #FFB800;
-  --color-bisi-orange: #FF8C00;
-  --color-bisi-blue: #1E3A8A;
-  --color-bisi-sky: #38BDF8;
-  --color-bisi-navy: #0F172A;
-  --color-bisi-light: #F8FAFC;
-  --color-bisi-green: #22C55E;
-  --color-bisi-pink: #F472B6;
-  --color-bisi-purple: #A78BFA;
+  /* ── BISI Summer Camp Color Palette ── */
+  --color-bisi-green:  #2D5A3F;   /* Primary dark green */
+  --color-bisi-navy:   #233256;   /* Secondary dark navy */
+  --color-bisi-sage:   #6BAE8A;   /* Medium sage accent */
+  --color-bisi-lime:   #D5EDE0;   /* Very light lime */
+  --color-bisi-light:  #EEF5F0;   /* Light green-tinted bg */
+  --color-bisi-gray:   #4D6359;   /* Body text */
+  --color-bisi-dark:   #1A2E23;   /* Deep dark green */
 
-  --font-display: 'Nunito', sans-serif;
-  --font-body: 'Inter', sans-serif;
+  /* Aliases so existing Tailwind utility classes still resolve */
+  --color-bisi-red:    #2D5A3F;   /* Remapped → primary green */
+  --color-bisi-gold:   #6BAE8A;   /* Remapped → sage green */
+  --color-bisi-sky:    #3D7A56;   /* Remapped → medium green */
+  --color-bisi-blue:   #233256;   /* Remapped → navy */
+  --color-bisi-yellow: #6BAE8A;
+  --color-bisi-orange: #2D5A3F;
+  --color-bisi-purple: #3A5F8A;
+  --color-bisi-pink:   #7BAEC0;
+
+  --font-display: 'serenity', 'Nunito', sans-serif;
+  --font-body:    'serenity', 'Inter', sans-serif;
 }
 
 @layer base {
-  html {
+  html, body {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+    margin: 0;
+    padding: 0;
     scroll-behavior: smooth;
-    font-family: var(--font-body);
   }
 
   body {
-    @apply bg-white text-bisi-navy antialiased;
+    font-family: var(--font-body);
+    background-color: #ffffff;
+    color: var(--color-bisi-navy);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
   }
 
   h1, h2, h3, h4, h5, h6 {
     font-family: var(--font-display);
+    text-align: center;
   }
 }
 
@@ -34,123 +53,19 @@
   width: 8px;
 }
 ::-webkit-scrollbar-track {
-  background: #f1f1f1;
+  background: #EEF5F0;
 }
 ::-webkit-scrollbar-thumb {
-  background: #FFB800;
+  background: #2D5A3F;
   border-radius: 4px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #e6a600;
-}
-:root {
-  --text: #6b6375;
-  --text-h: #08060d;
-  --bg: #fff;
-  --border: #e5e4e7;
-  --code-bg: #f4f3ec;
-  --accent: #aa3bff;
-  --accent-bg: rgba(170, 59, 255, 0.1);
-  --accent-border: rgba(170, 59, 255, 0.5);
-  --social-bg: rgba(244, 243, 236, 0.5);
-  --shadow:
-    rgba(0, 0, 0, 0.1) 0 10px 15px -3px, rgba(0, 0, 0, 0.05) 0 4px 6px -2px;
-
-  --sans: system-ui, 'Segoe UI', Roboto, sans-serif;
-  --heading: system-ui, 'Segoe UI', Roboto, sans-serif;
-  --mono: ui-monospace, Consolas, monospace;
-
-  font: 18px/145% var(--sans);
-  letter-spacing: 0.18px;
-  color-scheme: light dark;
-  color: var(--text);
-  background: var(--bg);
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-
-  @media (max-width: 1024px) {
-    font-size: 16px;
-  }
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --text: #9ca3af;
-    --text-h: #f3f4f6;
-    --bg: #16171d;
-    --border: #2e303a;
-    --code-bg: #1f2028;
-    --accent: #c084fc;
-    --accent-bg: rgba(192, 132, 252, 0.15);
-    --accent-border: rgba(192, 132, 252, 0.5);
-    --social-bg: rgba(47, 48, 58, 0.5);
-    --shadow:
-      rgba(0, 0, 0, 0.4) 0 10px 15px -3px, rgba(0, 0, 0, 0.25) 0 4px 6px -2px;
-  }
-
-  #social .button-icon {
-    filter: invert(1) brightness(2);
-  }
-}
-
-body {
-  margin: 0;
+  background: #233256;
 }
 
 #root {
-  width: 1126px;
-  max-width: 100%;
-  margin: 0 auto;
-  text-align: center;
-  border-inline: 1px solid var(--border);
+  width: 100%;
   min-height: 100svh;
   display: flex;
   flex-direction: column;
-  box-sizing: border-box;
-}
-
-h1,
-h2 {
-  font-family: var(--heading);
-  font-weight: 500;
-  color: var(--text-h);
-}
-
-h1 {
-  font-size: 56px;
-  letter-spacing: -1.68px;
-  margin: 32px 0;
-  @media (max-width: 1024px) {
-    font-size: 36px;
-    margin: 20px 0;
-  }
-}
-h2 {
-  font-size: 24px;
-  line-height: 118%;
-  letter-spacing: -0.24px;
-  margin: 0 0 8px;
-  @media (max-width: 1024px) {
-    font-size: 20px;
-  }
-}
-p {
-  margin: 0;
-}
-
-code,
-.counter {
-  font-family: var(--mono);
-  display: inline-flex;
-  border-radius: 4px;
-  color: var(--text-h);
-}
-
-code {
-  font-size: 15px;
-  line-height: 135%;
-  padding: 4px 8px;
-  background: var(--code-bg);
 }

@@ -1,16 +1,62 @@
 import { motion } from 'framer-motion'
 import { Container, SectionHeader } from './UI'
 
+/* Unsplash stock images — summer camp activities */
 const images = [
-  { id: 1, emoji: '🎨', title: 'Sanat Atölyesi', color: 'from-pink-200 to-rose-100', span: 'col-span-1 row-span-1' },
-  { id: 2, emoji: '⚽', title: 'Spor Sahanız', color: 'from-green-200 to-emerald-100', span: 'col-span-1 row-span-2' },
-  { id: 3, emoji: '🔬', title: 'Bilim Laboratuvarı', color: 'from-blue-200 to-sky-100', span: 'col-span-1 row-span-1' },
-  { id: 4, emoji: '🎵', title: 'Müzik Odası', color: 'from-purple-200 to-violet-100', span: 'col-span-1 row-span-1' },
-  { id: 5, emoji: '🏊', title: 'Yüzme Havuzu', color: 'from-cyan-200 to-teal-100', span: 'col-span-2 row-span-1' },
-  { id: 6, emoji: '🌳', title: 'Açık Alan Aktiviteleri', color: 'from-lime-200 to-green-100', span: 'col-span-1 row-span-1' },
-  { id: 7, emoji: '💻', title: 'Kodlama Lab', color: 'from-indigo-200 to-blue-100', span: 'col-span-1 row-span-1' },
-  { id: 8, emoji: '🎭', title: 'Drama Sahnesi', color: 'from-amber-200 to-yellow-100', span: 'col-span-1 row-span-1' },
-  { id: 9, emoji: '🍳', title: 'Mini Mutfak', color: 'from-orange-200 to-red-100', span: 'col-span-1 row-span-1' },
+  {
+    id: 1,
+    src: 'https://images.unsplash.com/photo-1599420186946-7b6fb4e297f0?w=600&q=80',
+    title: 'Arts & Crafts',
+    span: 'col-span-1 row-span-1',
+  },
+  {
+    id: 2,
+    src: 'https://images.unsplash.com/photo-1551958219-acbc6e10a13c?w=600&q=80',
+    title: 'Football',
+    span: 'col-span-1 row-span-2',
+  },
+  {
+    id: 3,
+    src: 'https://images.unsplash.com/photo-1532094349884-543290ece2bd?w=600&q=80',
+    title: 'Science Lab',
+    span: 'col-span-1 row-span-1',
+  },
+  {
+    id: 4,
+    src: 'https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=600&q=80',
+    title: 'Music',
+    span: 'col-span-1 row-span-1',
+  },
+  {
+    id: 5,
+    src: 'https://images.unsplash.com/photo-1560089000-7433a4ebbd64?w=900&q=80',
+    title: 'Swimming Pool',
+    span: 'col-span-2 row-span-1',
+  },
+  {
+    id: 6,
+    src: 'https://images.unsplash.com/photo-1472162072942-cd5147eb3902?w=600&q=80',
+    title: 'Outdoor Activities',
+    span: 'col-span-1 row-span-1',
+  },
+  {
+    id: 7,
+    src: 'https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=600&q=80',
+    title: 'Coding Lab',
+    span: 'col-span-1 row-span-1',
+  },
+  {
+    id: 8,
+    src: 'https://images.unsplash.com/photo-1527838832700-5059252407fa?w=600&q=80',
+    title: 'Drama Stage',
+    span: 'col-span-1 row-span-1',
+  },
+  {
+    id: 9,
+    src: 'https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=600&q=80',
+    title: 'Mini Kitchen',
+    span: 'col-span-1 row-span-1',
+  },
 ]
 
 const containerVariants = {
@@ -25,12 +71,12 @@ const itemVariants = {
 
 export default function Gallery() {
   return (
-    <section id="galeri" className="py-20 md:py-28 bg-white">
+    <section id="galeri" className="py-20 md:py-28 bg-white w-full">
       <Container>
         <SectionHeader
-          badge="📸 Galeri"
-          title="Kampımızdan Kareler"
-          description="BISI Summer Camp'in enerjik ve renkli dünyasına bir göz atın."
+          badge="📸 Gallery"
+          title="Life at Camp"
+          description="Take a look at the energetic and colourful world of the English Summer Camp."
         />
 
         <motion.div
@@ -45,22 +91,21 @@ export default function Gallery() {
               key={img.id}
               variants={itemVariants}
               whileHover={{ scale: 1.03, zIndex: 10 }}
-              className={`${img.span} relative group rounded-2xl bg-gradient-to-br ${img.color} overflow-hidden cursor-pointer shadow-sm hover:shadow-xl transition-shadow`}
+              className={`${img.span} relative group rounded-2xl overflow-hidden cursor-pointer shadow-sm hover:shadow-xl transition-shadow`}
             >
-              <div className="absolute inset-0 flex flex-col items-center justify-center p-4 text-center">
-                <motion.span
-                  className="text-5xl md:text-6xl"
-                  whileHover={{ scale: 1.2, rotate: [0, -10, 10, 0] }}
-                  transition={{ duration: 0.4 }}
-                >
-                  {img.emoji}
-                </motion.span>
-                <h3 className="mt-3 font-bold text-gray-700 font-[family-name:var(--font-display)] text-sm md:text-base">
+              <img
+                src={img.src}
+                alt={img.title}
+                className="absolute inset-0 w-full h-full object-cover"
+                loading="lazy"
+              />
+              {/* Overlay */}
+              <div className="absolute inset-0 bg-gradient-to-t from-bisi-navy/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
+              <div className="absolute bottom-0 left-0 right-0 p-4 translate-y-3 group-hover:translate-y-0 opacity-0 group-hover:opacity-100 transition-all duration-300">
+                <h3 className="font-bold text-white font-[family-name:var(--font-display)] text-sm md:text-base text-left">
                   {img.title}
                 </h3>
               </div>
-              {/* Hover overlay */}
-              <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity rounded-2xl" />
             </motion.div>
           ))}
         </motion.div>
