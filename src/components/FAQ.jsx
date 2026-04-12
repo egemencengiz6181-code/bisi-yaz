@@ -2,41 +2,7 @@ import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { ChevronDown } from 'lucide-react'
 import { Container, SectionHeader } from './UI'
-
-const faqs = [
-  {
-    q: 'What documents are required for enrolment?',
-    a: "A copy of the child's ID, a health report, 2 passport-size photographs and a signed parental consent form are required. After completing the online registration form, these documents can be submitted in person.",
-  },
-  {
-    q: 'What are the camp hours?',
-    a: 'Full-day programme runs 08:30–16:00 and half-day runs 09:00–12:15. Early drop-off is available from 08:00 and late pick-up until 17:00.',
-  },
-  {
-    q: 'Are meals and snacks included?',
-    a: 'Yes! The full-day programme includes breakfast, lunch and mid-morning snacks. All meals are prepared under the supervision of a qualified dietitian and dietary requirements and allergies are fully catered for.',
-  },
-  {
-    q: 'Who are the coaches and instructors?',
-    a: 'All our instructors are qualified specialists with child development certificates and extensive experience. Our staffing ratio is 1 instructor to every 8 students.',
-  },
-  {
-    q: 'Which age groups do you accept?',
-    a: 'We welcome children aged 4–15. Programmes are tailored to age groups: Little Explorers (4–6), Young Inventors (7–9), Super Coders (10–12) and Future Leaders (13–15).',
-  },
-  {
-    q: 'What safety measures are in place?',
-    a: 'The campus is monitored 24/7 with security cameras. Entry and exit are controlled by a card system. All staff hold first-aid certificates and a health officer is present on-site at all times.',
-  },
-  {
-    q: 'What is the cancellation and refund policy?',
-    a: 'Cancellations made 15 days before the start of camp are eligible for a 100% refund; 7 days before, 50%. Cancellations supported by a medical note are not subject to any time restriction.',
-  },
-  {
-    q: 'Is there a sibling discount?',
-    a: 'Yes! A 15% discount applies for the second child and 25% for the third and subsequent children. An additional 10% early-bird discount is also available during the early registration period.',
-  },
-]
+import { useLang } from '../LangContext'
 
 function FAQItem({ faq, isOpen, onToggle }) {
   return (
@@ -81,22 +47,24 @@ function FAQItem({ faq, isOpen, onToggle }) {
 }
 
 export default function FAQ() {
+  const { t } = useLang()
   const [openIndex, setOpenIndex] = useState(null)
+  const faq = t.faq
 
   return (
     <section id="sss" className="py-20 md:py-28 bg-gradient-to-b from-white to-[#EEF5F0] w-full">
       <Container>
         <SectionHeader
-          badge="❓ FAQ"
-          title="Frequently Asked Questions"
-          description="Everything you need to know. Can't find what you're looking for? Get in touch!"
+          badge={faq.badge}
+          title={faq.title}
+          description={faq.description}
         />
 
         <div className="max-w-3xl mx-auto space-y-3">
-          {faqs.map((faq, i) => (
+          {faq.items.map((item, i) => (
             <FAQItem
               key={i}
-              faq={faq}
+              faq={item}
               isOpen={openIndex === i}
               onToggle={() => setOpenIndex(openIndex === i ? null : i)}
             />

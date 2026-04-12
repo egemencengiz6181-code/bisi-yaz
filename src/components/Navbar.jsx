@@ -2,18 +2,19 @@ import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Menu, X } from 'lucide-react'
 import { Container } from './UI'
-
-const navLinks = [
-  { label: 'Programmes', href: '#programlar' },
-  { label: 'Activities', href: '#aktiviteler' },
-  { label: 'Daily Schedule', href: '#gunluk-plan' },
-  { label: 'Gallery', href: '#galeri' },
-  { label: 'FAQ', href: '#sss' },
-]
+import { useLang } from '../LangContext'
 
 export default function Navbar() {
+  const { lang, setLang, t } = useLang()
   const [scrolled, setScrolled] = useState(false)
   const [open, setOpen] = useState(false)
+
+  const navLinks = [
+    { label: t.nav.locations, href: '#lokasyonlar' },
+    { label: t.nav.programs, href: '#programlar' },
+    { label: t.nav.activities, href: '#aktiviteler' },
+    { label: t.nav.faq, href: '#sss' },
+  ]
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 60)
@@ -46,7 +47,7 @@ export default function Navbar() {
           </a>
 
           {/* Desktop Links */}
-          <div className="hidden md:flex items-center gap-8">
+          <div className="hidden md:flex items-center gap-6">
             {navLinks.map((link) => (
               <a
                 key={link.href}
@@ -63,6 +64,26 @@ export default function Navbar() {
                 }`} />
               </a>
             ))}
+
+            {/* Language Switcher */}
+            <div className={`flex items-center rounded-full p-0.5 text-xs font-bold border transition-all ${
+              scrolled ? 'border-[#2D5A3F]/30 bg-[#EEF5F0]' : 'border-white/30 bg-white/10'
+            }`}>
+              {['tr', 'en'].map((l) => (
+                <button
+                  key={l}
+                  onClick={() => setLang(l)}
+                  className={`px-3 py-1 rounded-full transition-all uppercase ${
+                    lang === l
+                      ? 'bg-[#2D5A3F] text-white shadow-sm'
+                      : scrolled ? 'text-[#233256] hover:text-[#2D5A3F]' : 'text-white/70 hover:text-white'
+                  }`}
+                >
+                  {l}
+                </button>
+              ))}
+            </div>
+
             <motion.a
               href="#kayit"
               whileHover={{ scale: 1.05 }}
@@ -73,23 +94,42 @@ export default function Navbar() {
                   : 'bg-white text-[#2D5A3F] hover:bg-white/90'
               }`}
             >
-              Enrol Now
+              {t.nav.enrol}
             </motion.a>
           </div>
 
-          {/* Mobile Toggle */}
-          <button
-            onClick={() => setOpen(!open)}
-            className={`md:hidden p-2 rounded-lg transition-colors ${
-              scrolled ? 'hover:bg-[#EEF5F0]' : 'hover:bg-white/10'
-            }`}
-            aria-label="Toggle menu"
-          >
-            {open
-              ? <X className={`w-6 h-6 ${scrolled ? 'text-[#233256]' : 'text-white'}`} />
-              : <Menu className={`w-6 h-6 ${scrolled ? 'text-[#233256]' : 'text-white'}`} />
-            }
-          </button>
+          {/* Mobile: lang toggle + hamburger */}
+          <div className="md:hidden flex items-center gap-2">
+            <div className={`flex items-center rounded-full p-0.5 text-xs font-bold border ${
+              scrolled ? 'border-[#2D5A3F]/30 bg-[#EEF5F0]' : 'border-white/30 bg-white/10'
+            }`}>
+              {['tr', 'en'].map((l) => (
+                <button
+                  key={l}
+                  onClick={() => setLang(l)}
+                  className={`px-2.5 py-1 rounded-full transition-all uppercase ${
+                    lang === l
+                      ? 'bg-[#2D5A3F] text-white shadow-sm'
+                      : scrolled ? 'text-[#233256]' : 'text-white/70'
+                  }`}
+                >
+                  {l}
+                </button>
+              ))}
+            </div>
+            <button
+              onClick={() => setOpen(!open)}
+              className={`p-2 rounded-lg transition-colors ${
+                scrolled ? 'hover:bg-[#EEF5F0]' : 'hover:bg-white/10'
+              }`}
+              aria-label="Toggle menu"
+            >
+              {open
+                ? <X className={`w-6 h-6 ${scrolled ? 'text-[#233256]' : 'text-white'}`} />
+                : <Menu className={`w-6 h-6 ${scrolled ? 'text-[#233256]' : 'text-white'}`} />
+              }
+            </button>
+          </div>
         </div>
       </Container>
 
@@ -119,7 +159,7 @@ export default function Navbar() {
                 whileTap={{ scale: 0.98 }}
                 className="block text-center py-3 mt-2 bg-gradient-to-r from-[#2D5A3F] to-[#233256] text-white font-bold rounded-full text-sm cursor-pointer"
               >
-                Enrol Now
+                {t.nav.enrol}
               </motion.a>
             </div>
           </motion.div>

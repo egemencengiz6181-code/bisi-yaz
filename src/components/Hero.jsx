@@ -1,13 +1,40 @@
 import { motion } from 'framer-motion'
 import { ArrowRight, ArrowDown, Users, BookOpen, Award, Sparkles } from 'lucide-react'
 import { Container } from './UI'
+import { useLang } from '../LangContext'
 
-const stats = [
-  { icon: BookOpen, value: '20+', label: 'Workshops' },
-  { icon: Users, value: '150+', label: 'Happy Campers' },
-  { icon: Award, value: '30+', label: 'Expert Coaches' },
-  { icon: Sparkles, value: '8', label: 'Adventure Weeks' },
-]
+const statIcons = [BookOpen, Users, Award, Sparkles]
+const statValues = ['20+', '150+', '30+', '8']
+const statKeys = ['workshops', 'campers', 'coaches', 'weeks']
+
+// Letter-by-letter animation
+const letterVariants = {
+  hidden: { opacity: 0, y: 40 },
+  visible: (i) => ({
+    opacity: 1,
+    y: 0,
+    transition: { delay: 0.3 + i * 0.06, duration: 0.55, ease: [0.22, 1, 0.36, 1] },
+  }),
+}
+
+function AnimatedWord({ word, className, baseDelay = 0 }) {
+  return (
+    <span className={`inline-flex ${className}`} aria-label={word}>
+      {word.split('').map((char, i) => (
+        <motion.span
+          key={i}
+          custom={i + baseDelay}
+          variants={letterVariants}
+          initial="hidden"
+          animate="visible"
+          style={{ display: 'inline-block', whiteSpace: char === ' ' ? 'pre' : 'normal' }}
+        >
+          {char}
+        </motion.span>
+      ))}
+    </span>
+  )
+}
 
 const orbs = [
   { size: 'w-96 h-96', pos: 'top-[-8rem] right-[-8rem]', color: 'bg-[#2D5A3F]/40', blur: 'blur-3xl', delay: 0 },
@@ -24,6 +51,8 @@ const floatingBadges = [
 ]
 
 export default function Hero() {
+  const { t } = useLang()
+
   return (
     <section className="relative min-h-screen flex items-center overflow-hidden bg-gradient-to-br from-[#2D5A3F] via-[#243D4A] to-[#233256]">
       {/* Mesh grid overlay */}
@@ -61,11 +90,12 @@ export default function Hero() {
 
       <Container className="relative z-10 py-32">
         <div className="max-w-4xl mx-auto text-center">
+
           {/* Live badge */}
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.1 }}
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.5, delay: 0.1 }}
             className="inline-flex items-center gap-2.5 px-5 py-2.5 rounded-full border border-white/20 bg-white/10 backdrop-blur-sm mb-8"
           >
             <motion.span
@@ -74,58 +104,66 @@ export default function Hero() {
               className="w-2 h-2 rounded-full bg-emerald-400 shrink-0"
             />
             <span className="text-white/90 text-sm font-semibold tracking-wide">
-              ☀️ 2026 Summer Enrolment — Now Open!
+              {t.hero.badge}
             </span>
           </motion.div>
 
-          {/* Title */}
-          <motion.h1
-            initial={{ opacity: 0, y: 50 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.9, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
-            className="text-5xl sm:text-6xl lg:text-7xl xl:text-8xl font-black leading-[1.05] tracking-tight mb-6"
-          >
-            <span className="text-white">BISI</span>
-            <br />
-            <span className="bg-gradient-to-r from-emerald-300 via-teal-200 to-white bg-clip-text text-transparent">
-              Summer Camp
-            </span>
-            <br />
-            <span className="text-white/70 text-4xl sm:text-5xl lg:text-6xl">2026</span>
-          </motion.h1>
+          {/* ── MAIN SLOGAN ─────────────────────────────────────────── */}
+          <div className="mb-6 overflow-hidden">
+            <div className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-black leading-tight tracking-tight">
+              <AnimatedWord word={t.hero.title[0]} className="text-white" baseDelay={0} />
+            </div>
+            <div className="text-5xl sm:text-6xl lg:text-7xl xl:text-8xl font-black leading-tight tracking-tight mt-1">
+              <AnimatedWord
+                word={t.hero.title[1]}
+                className="bg-gradient-to-r from-emerald-300 via-teal-200 to-white bg-clip-text text-transparent"
+                baseDelay={8}
+              />
+            </div>
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 1.2, duration: 0.6 }}
+              className="mt-4"
+            >
+              <span className="text-white/40 text-lg sm:text-xl font-semibold tracking-widest uppercase">
+                BISI Summer Camp 2026
+              </span>
+            </motion.div>
+          </div>
 
           {/* Subtitle */}
           <motion.p
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.4 }}
+            transition={{ duration: 0.7, delay: 1.4 }}
             className="text-white/65 text-lg sm:text-xl max-w-2xl mx-auto leading-relaxed mb-12"
           >
-            At The British School Istanbul, your child discovers an unforgettable summer — packed with workshops, sports, creative projects and friendships that last a lifetime.
+            {t.hero.sub}
           </motion.p>
 
           {/* CTAs */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.6, duration: 0.5 }}
+            transition={{ delay: 1.6, duration: 0.5 }}
             className="flex flex-wrap gap-4 justify-center mb-16"
           >
             <motion.a
-              href="#kayit"
+              href="#lokasyonlar"
               whileHover={{ scale: 1.05, boxShadow: '0 20px 50px rgba(45,90,63,0.6)' }}
               whileTap={{ scale: 0.97 }}
               className="inline-flex items-center gap-2 px-9 py-4 bg-white text-[#2D5A3F] font-bold rounded-full shadow-2xl text-lg hover:bg-white/95 transition-colors cursor-pointer"
             >
-              Enrol Now <ArrowRight className="w-5 h-5" />
+              {t.hero.cta1} <ArrowRight className="w-5 h-5" />
             </motion.a>
             <motion.a
-              href="#programlar"
+              href="#kayit"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.97 }}
               className="inline-flex items-center gap-2 px-9 py-4 border-2 border-white/30 text-white font-semibold rounded-full backdrop-blur-sm hover:border-white/60 hover:bg-white/10 transition-all cursor-pointer text-lg"
             >
-              Explore Programmes
+              {t.hero.cta2}
             </motion.a>
           </motion.div>
 
@@ -133,23 +171,26 @@ export default function Hero() {
           <motion.div
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.8, duration: 0.6 }}
+            transition={{ delay: 1.8, duration: 0.6 }}
             className="grid grid-cols-2 sm:grid-cols-4 gap-4 max-w-2xl mx-auto"
           >
-            {stats.map((stat, i) => (
+            {statKeys.map((key, i) => {
+              const Icon = statIcons[i]
+              return (
               <motion.div
-                key={stat.label}
+                key={key}
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.9 + i * 0.12 }}
+                transition={{ delay: 1.9 + i * 0.12 }}
                 whileHover={{ y: -5, scale: 1.06 }}
                 className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-2xl p-4 text-center cursor-default"
               >
-                <stat.icon className="w-6 h-6 text-emerald-300 mx-auto mb-2" />
-                <div className="text-2xl font-black text-white leading-none">{stat.value}</div>
-                <div className="text-white/55 text-xs font-medium mt-1">{stat.label}</div>
+                <Icon className="w-6 h-6 text-emerald-300 mx-auto mb-2" />
+                <div className="text-2xl font-black text-white leading-none">{statValues[i]}</div>
+                <div className="text-white/55 text-xs font-medium mt-1">{t.hero.stats[key]}</div>
               </motion.div>
-            ))}
+              )
+            })}
           </motion.div>
         </div>
       </Container>
