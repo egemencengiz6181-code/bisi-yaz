@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion'
-import { Sun, MapPin, Phone, Mail, Camera, Globe, Play, MessageCircle, ArrowRight } from 'lucide-react'
+import { MapPin, Phone, Mail, Camera, Globe, Play, MessageCircle, ArrowRight } from 'lucide-react'
 import { Container } from './UI'
 import { useState } from 'react'
 import { useLang } from '../LangContext'
@@ -55,13 +55,12 @@ export default function Footer() {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* Brand */}
           <div className="sm:col-span-2 lg:col-span-1">
-            <div className="flex items-center gap-2 mb-4">
-              <div className="w-10 h-10 bg-gradient-to-br from-bisi-yellow to-bisi-orange rounded-xl flex items-center justify-center">
-                <Sun className="w-6 h-6 text-white" />
-              </div>
-              <span className="font-extrabold text-xl font-[family-name:var(--font-display)]">
-                BISI <span className="text-emerald-400">Camp</span>
-              </span>
+            <div className="mb-5">
+              <img
+                src="/logo/e9e0290c-6285-409c-861c-ff95e3e44a32-2.png"
+                alt="The British School Istanbul"
+                className="h-12 w-auto object-contain brightness-0 invert"
+              />
             </div>
             <p className="text-gray-400 text-sm leading-relaxed mb-5">
               {footer.brand}

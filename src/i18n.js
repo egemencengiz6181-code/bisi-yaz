@@ -13,7 +13,7 @@ export const tr = {
 
   /* Hero */
   hero: {
-    badge: '☀️ 2026 Yaz Kaydı Açıldı!',
+    badge: '🇬🇧 İngilizce Odaklı Yaz Okulu!',
     title: ['İngilizce Öğren,', 'Eğlenceye Doyur!'],
     sub: 'The British School Istanbul bünyesinde, çocuğunuz İngilizce öğrenirken spor yapar, sanat üretir, arkadaşlıklar kurar — unutulmaz bir yaz geçirir.',
     cta1: 'Kampüsleri Keşfet',
