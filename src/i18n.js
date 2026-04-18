@@ -4,11 +4,13 @@
 export const tr = {
   /* Navbar */
   nav: {
+    home: 'Anasayfa',
     locations: 'Lokasyonlar',
     programs: 'Programlar',
     activities: 'Aktiviteler',
     faq: 'SSS',
     enrol: 'Kayıt Ol',
+    campuses: 'Kurumlarımız',
   },
 
   /* Hero */
@@ -83,19 +85,51 @@ export const tr = {
   activities: {
     badge: '🌈 Aktiviteler',
     title: 'Keşfetmeye Hazır mısın?',
-    description: 'Spor, sanat, teknoloji ve doğa — her ilgi alanına göre düzinelerce aktivite!',
+    description: 'Spor, sanat, İngilizce ve daha fazlası — her ilgi alanına göre zengin aktiviteler!',
     items: [
-      { title: 'Spor', desc: 'Futbol, basketbol, yüzme ve daha fazlası' },
-      { title: 'Sanat', desc: 'Resim, heykel, seramik ve yaratıcı atölyeler' },
-      { title: 'İngilizce', desc: 'Oyunlarla eğlenceli dil öğrenimi' },
-      { title: 'STEM & Kodlama', desc: 'Robotik, kodlama ve bilim deneyleri' },
-      { title: 'Müzik', desc: 'Enstrüman, ritim ve koro seansları' },
-      { title: 'Doğa', desc: 'Bahçecilik, doğa yürüyüşü ve kamp' },
-      { title: 'Medya', desc: 'Fotoğrafçılık, video ve dijital sanat' },
-      { title: 'Oyun Tasarımı', desc: 'Dijital ve analog oyun geliştirme' },
-      { title: 'Mini Mutfak', desc: 'Eğlenceli ve sağlıklı tarifler' },
-      { title: 'Keşif Kulübü', desc: 'Astronomi, arkeoloji ve küçük maceralar' },
+      { title: 'Spor', desc: 'Basketbol, voleybol, yüzme, tenis, futsal' },
+      { title: 'Sanat', desc: 'Yaratıcı atölyeler ve el sanatları' },
+      { title: 'İngilizce', desc: 'Speaking, Listening, Drama ve daha fazlası' },
+      { title: 'Satranç', desc: 'Strateji ve zihin geliştirici satranç seansları' },
+      { title: 'Dans', desc: 'Modern dans ve ritim çalışmaları' },
+      { title: 'Minik Şefler', desc: 'Eğlenceli ve sağlıklı mutfak etkinlikleri' },
+      { title: 'Bahçe', desc: 'Bahçe etkinlikleri ve doğa ile buluşma' },
+      { title: 'Yüzme', desc: 'Profesyonel eğitmenler eşliğinde yüzme dersi' },
+      { title: 'Deney', desc: 'İngilizce Experiment dersleri' },
+      { title: 'Hikaye', desc: 'Story Telling ile yaratıcı İngilizce' },
     ],
+  },
+
+  /* Features */
+  features: {
+    badge: '⭐ Neden Bizi Seçmelisiniz?',
+    title: 'Çocuğunuzun İhtiyacı Olan Her Şey',
+    description: 'Güvenlikten öğrenmeye, her detay unutulmaz bir yaz deneyimi için özenle tasarlanmıştır.',
+    items: [
+      { title: 'Güvenli Kampüs', description: '7/24 güvenlik, kameralar ve ilk yardım sertifikalı personel.' },
+      { title: 'İngilizce Odaklı Program', description: 'Yabancı öğretmenler eşliğinde, Speaking, Listening, Drama ve daha fazlası.' },
+      { title: 'Sağlıklı Beslenme', description: 'Kahvaltı, öğle yemeği ve ikindi kahvaltısı programa dahildir.' },
+      { title: 'Uzman Eğitmenler', description: 'Hido Basketbol Akademi ve BK Voleybol Akademisi iş birliğiyle profesyonel eğitmenler.' },
+      { title: 'Tam Gün Program', description: '09:00–16:00 tam gün program; haftalık kayıt imkânı mevcuttur.' },
+      { title: 'Yaş Grubuna Özel', description: '4–13 yaş arası çocuklar için yaş grubuna özel hazırlanmış programlar.' },
+    ],
+    trust: {
+      sub: 'İstanbul\'daki ailelerin güvendiği okul',
+      title: 'Her yaz 150\'den fazla mutlu öğrencimiz BIS\'de yaz okulunu deneyimliyor',
+      badges: [
+        '🇬🇧 İngilizce Odaklı Program',
+        '✅ CCTV & Güvenlik',
+        '🍽️ Kahvaltı & Öğle Yemeği Dahil',
+        '🏆 Profesyonel Eğitmenler',
+      ],
+    },
+  },
+
+  /* Gallery */
+  gallery: {
+    badge: '📸 Galeri',
+    title: 'Kampta Hayat',
+    description: 'İngilizce Yaz Okulu\'nun enerjik ve renkli dünyasına bir bakış atın.',
   },
 
   /* FAQ */
@@ -105,38 +139,62 @@ export const tr = {
     description: 'Aklınızdaki soruların yanıtları burada. Bulamadıysanız bize ulaşın!',
     items: [
       {
-        q: 'Kayıt için hangi belgeler gereklidir?',
-        a: 'Kimlik fotokopisi, sağlık raporu, 2 adet vesikalık fotoğraf ve imzalı veli izin formu gerekmektedir. Online kayıt formunu doldurduktan sonra belgeler şahsen teslim edilebilir.',
+        q: 'Program kaç yaş grubuna uygundur?',
+        a: '4 ile 13 yaş arasındaki çocuklarımızı kabul ediyoruz. Program, her yaş grubuna uygun aktiviteler ve İngilizce eğitimle hazırlanmıştır.',
       },
       {
-        q: 'Kamp saatleri nelerdir?',
-        a: 'Tam gün program 08:30–16:00, yarım gün program 09:00–12:15 arası düzenlenmektedir. Erken bırakma 08:00\'den, geç alım ise 17:00\'ye kadar mevcuttur.',
+        q: 'Program saatleri nelerdir?',
+        a: 'Program hafta içi her gün 09:00–16:00 saatleri arasında uygulanmaktadır. Servis ve bireysel bırakma seçenekleri mevcuttur.',
       },
       {
-        q: 'Yemek ve atıştırmalıklar dahil mi?',
-        a: 'Evet! Tam gün program kahvaltı, öğle yemeği ve sabah atıştırmalığını kapsamaktadır. Tüm yemekler uzman diyetisyen gözetiminde hazırlanmakta; diyet gereksinimleri ve alerjiler eksiksiz karşılanmaktadır.',
+        q: 'Yemekler programa dahil mi?',
+        a: 'Evet! Sabah kahvaltısı ve öğle yemeği programa dahildir. Ayrıca ikindi kahvaltısı (snack) da sağlanmaktadır.',
       },
       {
-        q: 'Koç ve eğitmenler kimlerdir?',
-        a: 'Tüm eğitmenlerimiz çocuk gelişimi sertifikalı ve deneyimli uzmanlardır. Öğrenci-eğitmen oranımız 8\'e 1\'dir.',
+        q: 'İngilizce eğitim nasıl işliyor?',
+        a: 'BIS Schools yabancı öğretmen kadrosu tarafından yürütülen Intensive English programımızda Speaking, Listening, Reading, Writing ve Drama gibi yetkinlikler doğal bir ortamda geliştirilmektedir. Derslerin bir kısmı sınıfta, bir kısmı ise koruda veya farklı mekânlarda gerçekleştirilmektedir.',
       },
       {
-        q: 'Hangi yaş gruplarını kabul ediyorsunuz?',
-        a: '4–15 yaş arası çocukları kabul ediyoruz. Programlar yaş grubuna göre özelleştirilmektedir: Küçük Kaşifler (4–6), Genç Mucitler (7–9), Süper Kodlayıcılar (10–12) ve Gelecekteki Liderler (13–15).',
+        q: 'Hangi spor aktiviteleri sunulmaktadır?',
+        a: 'Basketbol, voleybol (Hido Basketbol Akademi ve BK Voleybol Akademisi iş birliğiyle), cimnastik, yüzme, tenis ve futsal gibi sporlar profesyonel ve sertifikalı eğitmenler tarafından sunulmaktadır.',
       },
       {
-        q: 'Güvenlik önlemleri nelerdir?',
-        a: 'Kampüs 7/24 güvenlik kamerasıyla izlenmektedir. Giriş-çıkışlar kart sistemiyle kontrol edilmektedir. Tüm personel ilk yardım sertifikalıdır ve sahada sürekli sağlık personeli bulunmaktadır.',
+        q: 'Yüzme dersi programa dahil mi?',
+        a: 'Evet, her gün 11:15–12:15 saatleri arasında düzenli yüzme dersi programa dahildir.',
       },
       {
-        q: 'İptal ve iade politikası nedir?',
-        a: 'Kamp başlangıcından 15 gün önce yapılan iptallerde %100, 7 gün önce %50 iade yapılmaktadır. Sağlık raporu destekli iptaller süre sınırına tabi değildir.',
+        q: 'Haftalık kayıt yapılabilir mi?',
+        a: 'Evet, haftalık kayıt imkânı mevcuttur. 1 haftalık kayıt 18.000 ₺+KDV, 3 haftalık kayıt ise 45.000 ₺+KDV\'dir.',
       },
       {
         q: 'Kardeş indirimi var mı?',
-        a: 'Evet! İkinci çocukta %15, üçüncü ve sonraki çocuklarda %25 indirim uygulanmaktadır. Erken kayıt döneminde ek %10 avantaj da mevcuttur.',
+        a: 'Evet, %5 kardeş indirimi uygulanmaktadır.',
+      },
+      {
+        q: '8 haftalık program nasıl planlanmıştır?',
+        a: 'Program, 8 hafta boyunca farklı temalarla planlanmıştır. Her hafta öğrencilerimiz farklı bir gelişim alanını deneyimlemekte; atölye ve etkinlikler haftalar arasında rotasyonlu olarak değişmektedir.',
       },
     ],
+  },
+
+  /* Registration Modal */
+  registration: {
+    badge: 'BISI Summer Camp 2026',
+    title: 'Kayıt Formu',
+    subtitle: 'Alanları doldurun, size ulaşalım.',
+    fields: {
+      name:        { label: 'İsim Soyisim',      placeholder: 'Adınız ve soyadınız' },
+      email:       { label: 'E-posta',            placeholder: 'ornek@email.com' },
+      phone:       { label: 'Telefon Numarası',   placeholder: '+90 5XX XXX XX XX' },
+      institution: { label: 'Kurum Seçimi',       placeholder: 'Kurumunuzu seçin' },
+    },
+    institutions: ['Bahçeşehir', 'Çamlıca', 'Alkent', 'Zekeriyaköy'],
+    submit: 'Formu Gönder',
+    success: {
+      title:   'Formunuz Alındı!',
+      message: 'Teşekkürler! En kısa sürede sizinle iletişime geçeceğiz.',
+      close:   'Kapat',
+    },
   },
 
   /* Footer */
@@ -146,21 +204,25 @@ export const tr = {
       sub: 'Erken kayıt avantajlarını kaçırmayın. Yerimiz sınırlı!',
       btn: 'Hemen Kayıt Ol',
     },
-    brand: 'BISI Summer Camp, çocukların güvenli bir ortamda eğlenirken öğrenmelerini sağlayan, İstanbul\'un en kapsamlı yaz kampıdır.',
+    brand: 'BISI Summer School, çocukların güvenli bir ortamda İngilizce öğrenirken eğlenmelerini sağlayan BIS Okulları bünyesindeki kapsamlı yaz okuludur.',
     quickLinks: 'Hızlı Bağlantılar',
-    contact: 'İletişim',
+    campusesTitle: 'Kurumlarımız',
     newsletter: 'Bültenimize Katılın',
     newsletterSub: 'Son dakika duyurularını ve özel fırsatları kaçırmayın.',
     emailPlaceholder: 'E-posta adresiniz',
     subscribe: 'Abone Ol',
     rights: 'Tüm hakları saklıdır.',
     links: [
-      { label: 'Hakkımızda', href: '#' },
-      { label: 'Programlar', href: '#programlar' },
+      { label: 'Anasayfa',    href: '/' },
       { label: 'Aktiviteler', href: '#aktiviteler' },
-      { label: 'Galeri', href: '#galeri' },
-      { label: 'SSS', href: '#sss' },
-      { label: 'İletişim', href: '#iletisim' },
+      { label: 'Galeri',      href: '#galeri' },
+      { label: 'SSS',         href: '#sss' },
+    ],
+    campusLinks: [
+      { label: 'Bahçeşehir',  href: '/bahcesehir',               external: false },
+      { label: 'Çamlıca',     href: '/camlica',                  external: false },
+      { label: 'Alkent',      href: '/alkent',                   external: false },
+      { label: 'Zekeriyaköy', href: 'https://www.bisisummer.com', external: true  },
     ],
   },
 }
@@ -168,11 +230,13 @@ export const tr = {
 export const en = {
   /* Navbar */
   nav: {
+    home: 'Home',
     locations: 'Locations',
     programs: 'Programmes',
     activities: 'Activities',
     faq: 'FAQ',
     enrol: 'Enrol Now',
+    campuses: 'Our Campuses',
   },
 
   /* Hero */
@@ -247,60 +311,116 @@ export const en = {
   activities: {
     badge: '🌈 Activities',
     title: 'Ready to Explore?',
-    description: 'Sports, arts, technology and nature – dozens of activities for every interest!',
+    description: 'Sports, arts, English and more — a rich range of activities for every interest!',
     items: [
-      { title: 'Sports', desc: 'Football, basketball, swimming and more' },
-      { title: 'Arts', desc: 'Painting, sculpture, ceramics and creative workshops' },
-      { title: 'English', desc: 'Fun language learning through games' },
-      { title: 'STEM & Coding', desc: 'Robotics, coding and science experiments' },
-      { title: 'Music', desc: 'Instruments, rhythm and choir sessions' },
-      { title: 'Nature', desc: 'Gardening, nature walks and camping' },
-      { title: 'Media', desc: 'Photography, video and digital art' },
-      { title: 'Game Design', desc: 'Digital and analogue game development' },
-      { title: 'Mini Kitchen', desc: 'Fun and healthy recipes to cook' },
-      { title: 'Discovery Club', desc: 'Astronomy, archaeology and micro-adventures' },
+      { title: 'Sports', desc: 'Basketball, volleyball, swimming, tennis, futsal' },
+      { title: 'Arts', desc: 'Creative workshops and crafts' },
+      { title: 'English', desc: 'Speaking, Listening, Drama and more' },
+      { title: 'Chess', desc: 'Strategy and mind-building chess sessions' },
+      { title: 'Dance', desc: 'Modern dance and rhythm workshops' },
+      { title: 'Little Chefs', desc: 'Fun and healthy kitchen activities' },
+      { title: 'Garden', desc: 'Garden activities and connecting with nature' },
+      { title: 'Swimming', desc: 'Daily swimming lessons with certified coaches' },
+      { title: 'Experiment', desc: 'English Experiment lessons' },
+      { title: 'Story Telling', desc: 'Creative English through story telling' },
     ],
+  },
+
+  /* Features */
+  features: {
+    badge: '⭐ Why Choose Us',
+    title: 'Everything Your Child Needs',
+    description: 'From safety to learning, every detail is thoughtfully crafted for an unforgettable summer experience.',
+    items: [
+      { title: 'Safe & Secure Campus', description: '24/7 security, CCTV monitoring and first-aid certified staff at all times.' },
+      { title: 'English-Focused Programme', description: 'Speaking, Listening, Drama and more delivered by foreign teachers.' },
+      { title: 'Meals Included', description: 'Breakfast, lunch and afternoon snacks are all included in the programme.' },
+      { title: 'Expert Instructors', description: 'Professional coaches in partnership with Hido Basketball Academy and BK Volleyball Academy.' },
+      { title: 'Full-Day Programme', description: '09:00–16:00 full-day programme; weekly enrolment available.' },
+      { title: 'Age-Specific Groups', description: 'Specially tailored programmes for children aged 4–13.' },
+    ],
+    trust: {
+      sub: 'Trusted by families across Istanbul',
+      title: 'Over 150 happy students experience BIS Summer School every summer',
+      badges: [
+        '🇬🇧 English-Focused Programme',
+        '✅ CCTV & Security',
+        '🍽️ Breakfast & Lunch Included',
+        '🏆 Professional Instructors',
+      ],
+    },
+  },
+
+  /* Gallery */
+  gallery: {
+    badge: '📸 Gallery',
+    title: 'Life at Camp',
+    description: 'Take a look at the energetic and colourful world of the English Summer Camp.',
   },
 
   /* FAQ */
   faq: {
     badge: '❓ FAQ',
     title: 'Frequently Asked Questions',
-    description: 'Everything you need to know. Can\'t find what you\'re looking for? Get in touch!',
+    description: "Everything you need to know. Can't find what you're looking for? Get in touch!",
     items: [
       {
-        q: 'What documents are required for enrolment?',
-        a: "A copy of the child's ID, a health report, 2 passport-size photographs and a signed parental consent form are required. After completing the online registration form, these documents can be submitted in person.",
+        q: 'What age groups is the programme suitable for?',
+        a: 'We welcome children aged 4 to 13. The programme is designed with activities and English education tailored to each age group.',
       },
       {
-        q: 'What are the camp hours?',
-        a: 'Full-day programme runs 08:30–16:00 and half-day runs 09:00–12:15. Early drop-off is available from 08:00 and late pick-up until 17:00.',
+        q: 'What are the programme hours?',
+        a: 'The programme runs Monday to Friday, 09:00–16:00. Transport and individual drop-off options are available.',
       },
       {
-        q: 'Are meals and snacks included?',
-        a: 'Yes! The full-day programme includes breakfast, lunch and mid-morning snacks. All meals are prepared under the supervision of a qualified dietitian and dietary requirements and allergies are fully catered for.',
+        q: 'Are meals included?',
+        a: 'Yes! Breakfast and lunch are included. An afternoon snack is also provided.',
       },
       {
-        q: 'Who are the coaches and instructors?',
-        a: 'All our instructors are qualified specialists with child development certificates and extensive experience. Our staffing ratio is 1 instructor to every 8 students.',
+        q: 'How does the English education work?',
+        a: 'Our Intensive English programme is delivered by BIS Schools foreign teachers, developing Speaking, Listening, Reading, Writing and Drama skills in a natural environment. Some lessons take place in the classroom while others are held in the grove or other outdoor spaces.',
       },
       {
-        q: 'Which age groups do you accept?',
-        a: 'We welcome children aged 4–15. Programmes are tailored to age groups: Little Explorers (4–6), Young Inventors (7–9), Super Coders (10–12) and Future Leaders (13–15).',
+        q: 'What sports activities are available?',
+        a: 'Basketball, volleyball (in partnership with Hido Basketball Academy and BK Volleyball Academy), gymnastics, swimming, tennis and futsal are all delivered by professional, certified coaches.',
       },
       {
-        q: 'What safety measures are in place?',
-        a: 'The campus is monitored 24/7 with security cameras. Entry and exit are controlled by a card system. All staff hold first-aid certificates and a health officer is present on-site at all times.',
+        q: 'Is swimming included in the programme?',
+        a: 'Yes, a daily swimming lesson is included from 11:15–12:15.',
       },
       {
-        q: 'What is the cancellation and refund policy?',
-        a: 'Cancellations made 15 days before the start of camp are eligible for a 100% refund; 7 days before, 50%. Cancellations supported by a medical note are not subject to any time restriction.',
+        q: 'Can I enrol on a weekly basis?',
+        a: 'Yes, weekly enrolment is available. 1 week is 18,000 ₺+VAT and 3 weeks is 45,000 ₺+VAT.',
       },
       {
         q: 'Is there a sibling discount?',
-        a: 'Yes! A 15% discount applies for the second child and 25% for the third and subsequent children. An additional 10% early-bird discount is also available during the early registration period.',
+        a: 'Yes, a 5% sibling discount applies.',
+      },
+      {
+        q: 'How is the 8-week programme structured?',
+        a: 'The programme is planned around different themes across 8 weeks. Each week, students experience a different area of development; workshops and activities rotate between weeks.',
       },
     ],
+  },
+
+  /* Registration Modal */
+  registration: {
+    badge: 'BISI Summer Camp 2026',
+    title: 'Registration Form',
+    subtitle: 'Fill in the fields and we\'ll get back to you.',
+    fields: {
+      name:        { label: 'Full Name',        placeholder: 'Your first and last name' },
+      email:       { label: 'Email',            placeholder: 'example@email.com' },
+      phone:       { label: 'Phone Number',     placeholder: '+90 5XX XXX XX XX' },
+      institution: { label: 'Campus Selection', placeholder: 'Select your campus' },
+    },
+    institutions: ['Bahçeşehir', 'Çamlıca', 'Alkent', 'Zekeriyaköy'],
+    submit: 'Submit Form',
+    success: {
+      title:   'Form Received!',
+      message: 'Thank you! We\'ll get in touch with you shortly.',
+      close:   'Close',
+    },
   },
 
   /* Footer */
@@ -312,19 +432,23 @@ export const en = {
     },
     brand: 'BISI Summer Camp is Istanbul\'s most comprehensive summer camp where children learn while having fun in a safe environment.',
     quickLinks: 'Quick Links',
-    contact: 'Contact',
+    campusesTitle: 'Our Campuses',
     newsletter: 'Join Our Newsletter',
     newsletterSub: 'Don\'t miss last-minute announcements and special offers.',
     emailPlaceholder: 'Your email address',
     subscribe: 'Subscribe',
     rights: 'All rights reserved.',
     links: [
-      { label: 'About Us', href: '#' },
-      { label: 'Programmes', href: '#programlar' },
+      { label: 'Home', href: '#' },
       { label: 'Activities', href: '#aktiviteler' },
       { label: 'Gallery', href: '#galeri' },
       { label: 'FAQ', href: '#sss' },
-      { label: 'Contact', href: '#iletisim' },
+    ],
+    campusLinks: [
+      { label: 'Bahçeşehir Campus', href: '/bahcesehir', external: false },
+      { label: 'Çamlıca Campus', href: '/camlica', external: false },
+      { label: 'Alkent Campus', href: '/alkent', external: false },
+      { label: 'Zekeriyaköy Campus', href: '#', external: false },
     ],
   },
 }

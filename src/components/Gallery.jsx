@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion'
 import { Container, SectionHeader } from './UI'
+import { useLang } from '../LangContext'
 
 /* Unsplash stock images — summer camp activities */
 const images = [
@@ -70,13 +71,16 @@ const itemVariants = {
 }
 
 export default function Gallery() {
+  const { t } = useLang()
+  const gal = t.gallery
+
   return (
     <section id="galeri" className="py-20 md:py-28 bg-white w-full">
       <Container>
         <SectionHeader
-          badge="📸 Gallery"
-          title="Life at Camp"
-          description="Take a look at the energetic and colourful world of the English Summer Camp."
+          badge={gal.badge}
+          title={gal.title}
+          description={gal.description}
         />
 
         <motion.div

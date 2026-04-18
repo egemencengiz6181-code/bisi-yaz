@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion'
 import { MapPin, ArrowRight, ExternalLink, Star } from 'lucide-react'
+import { useNavigate } from 'react-router-dom'
 import { Container, SectionHeader } from './UI'
 import { useLang } from '../LangContext'
 
@@ -15,10 +16,14 @@ const cardVariants = {
 
 function CampusCard({ campus, labels }) {
   const isExternal = Boolean(campus.externalLink)
+  const navigate = useNavigate()
+  const internalPath = `/${campus.id}`
 
-  const handleClick = () => {
+  const handleCardClick = () => {
     if (isExternal) {
       window.open(campus.externalLink, '_blank', 'noopener,noreferrer')
+    } else {
+      navigate(internalPath)
     }
   }
 
@@ -26,8 +31,8 @@ function CampusCard({ campus, labels }) {
     <motion.div
       variants={cardVariants}
       whileHover={{ y: -8, scale: 1.02 }}
-      onClick={isExternal ? handleClick : undefined}
-      className={`relative group bg-white rounded-3xl overflow-hidden shadow-lg shadow-[#2D5A3F]/8 border border-gray-100 hover:shadow-2xl hover:shadow-[#2D5A3F]/15 transition-all duration-400 ${isExternal ? 'cursor-pointer' : ''}`}
+      onClick={handleCardClick}
+      className="relative group bg-white rounded-3xl overflow-hidden shadow-lg shadow-[#2D5A3F]/8 border border-gray-100 hover:shadow-2xl hover:shadow-[#2D5A3F]/15 transition-all duration-400 cursor-pointer"
     >
       {/* Gradient header */}
       <div className={`relative h-44 bg-gradient-to-br ${campus.color} flex items-center justify-center overflow-hidden`}>
@@ -98,21 +103,21 @@ function CampusCard({ campus, labels }) {
           <motion.button
             whileHover={{ scale: 1.03 }}
             whileTap={{ scale: 0.97 }}
-            onClick={handleClick}
+            onClick={(e) => { e.stopPropagation(); handleCardClick() }}
             className="w-full flex items-center justify-center gap-2 py-3 bg-gradient-to-r from-emerald-600 to-[#2D5A3F] text-white font-bold rounded-2xl text-sm shadow-md hover:shadow-lg transition-shadow"
           >
             <ExternalLink className="w-4 h-4" />
             {labels.visitSite}
           </motion.button>
         ) : (
-          <motion.a
-            href="#kayit"
+          <motion.button
             whileHover={{ scale: 1.03 }}
             whileTap={{ scale: 0.97 }}
-            className="w-full flex items-center justify-center gap-2 py-3 bg-gradient-to-r from-[#2D5A3F] to-[#233256] text-white font-bold rounded-2xl text-sm shadow-md hover:shadow-lg transition-shadow cursor-pointer"
+            onClick={(e) => { e.stopPropagation(); navigate(internalPath) }}
+            className="w-full flex items-center justify-center gap-2 py-3 bg-gradient-to-r from-[#2D5A3F] to-[#233256] text-white font-bold rounded-2xl text-sm shadow-md hover:shadow-lg transition-shadow"
           >
-            {labels.enrol} <ArrowRight className="w-4 h-4" />
-          </motion.a>
+            {labels.learnMore} <ArrowRight className="w-4 h-4" />
+          </motion.button>
         )}
       </div>
     </motion.div>
@@ -143,20 +148,6 @@ export default function Locations() {
             <CampusCard key={campus.id} campus={campus} labels={loc} />
           ))}
         </motion.div>
-
-        {/* Bottom note about Zekeriyaköy */}
-        <motion.p
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.8 }}
-          className="text-center text-sm text-[#4D6359] mt-8 flex items-center justify-center gap-1.5"
-        >
-          <ExternalLink className="w-3.5 h-3.5 text-[#2D5A3F]" />
-          <span>
-            Zekeriyaköy → <a href="https://www.bisisummer.com" target="_blank" rel="noopener noreferrer" className="text-[#2D5A3F] font-semibold hover:underline">www.bisisummer.com</a>
-          </span>
-        </motion.p>
       </Container>
     </section>
   )

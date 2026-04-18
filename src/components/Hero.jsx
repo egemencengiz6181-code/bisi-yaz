@@ -43,14 +43,7 @@ const orbs = [
   { size: 'w-32 h-32', pos: 'bottom-1/3 right-1/4', color: 'bg-teal-400/15', blur: 'blur-2xl', delay: 0.8 },
 ]
 
-const floatingBadges = [
-  { emoji: '🎨', label: 'Arts & Crafts', pos: 'top-[22%] left-[5%]', delay: 0.6 },
-  { emoji: '⚽', label: 'Sports', pos: 'top-[30%] right-[5%]', delay: 0.9 },
-  { emoji: '🔬', label: 'STEM', pos: 'bottom-[28%] left-[6%]', delay: 1.2 },
-  { emoji: '🎵', label: 'Music', pos: 'bottom-[22%] right-[6%]', delay: 1.4 },
-]
-
-export default function Hero() {
+export default function Hero({ onOpenModal }) {
   const { t } = useLang()
 
   return (
@@ -73,19 +66,6 @@ export default function Hero() {
           animate={{ scale: [1, 1.15, 1], opacity: [0.5, 0.8, 0.5] }}
           transition={{ duration: 6 + i * 1.5, repeat: Infinity, delay: orb.delay, ease: 'easeInOut' }}
         />
-      ))}
-
-      {/* Floating activity badges — desktop only */}
-      {floatingBadges.map((badge, i) => (
-        <motion.div
-          key={i}
-          className={`absolute ${badge.pos} hidden lg:flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 border border-white/20 backdrop-blur-sm text-white text-sm font-semibold`}
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: [0, -8, 0] }}
-          transition={{ opacity: { delay: badge.delay, duration: 0.6 }, y: { duration: 3 + i * 0.5, repeat: Infinity, delay: badge.delay, ease: 'easeInOut' } }}
-        >
-          <span className="text-base">{badge.emoji}</span> {badge.label}
-        </motion.div>
       ))}
 
       <Container className="relative z-10 py-32">
@@ -157,14 +137,29 @@ export default function Hero() {
             >
               {t.hero.cta1} <ArrowRight className="w-5 h-5" />
             </motion.a>
-            <motion.a
-              href="#kayit"
-              whileHover={{ scale: 1.05 }}
+            <motion.button
+              onClick={onOpenModal}
+              whileHover={{ scale: 1.06 }}
               whileTap={{ scale: 0.97 }}
-              className="inline-flex items-center gap-2 px-9 py-4 border-2 border-white/30 text-white font-semibold rounded-full backdrop-blur-sm hover:border-white/60 hover:bg-white/10 transition-all cursor-pointer text-lg"
+              className="relative inline-flex items-center gap-2 px-9 py-4 font-bold rounded-full cursor-pointer text-lg text-white overflow-hidden"
+              style={{ padding: '2px' }}
             >
-              {t.hero.cta2}
-            </motion.a>
+              {/* Rotating gradient border */}
+              <span
+                className="absolute inset-0 rounded-full"
+                style={{
+                  background: 'conic-gradient(from 0deg, #2D5A3F, #6BAE8A, #3D7A56, #233256, #3A5F8A, #2D5A3F)',
+                  animation: 'spinGradient 4s linear infinite',
+                }}
+              />
+              {/* Inner fill */}
+              <span
+                className="relative z-10 inline-flex items-center gap-2 w-full h-full px-8 py-[14px] rounded-full font-bold text-lg text-white"
+                style={{ background: 'rgba(26,46,35,0.65)', backdropFilter: 'blur(8px)' }}
+              >
+                {t.hero.cta2}
+              </span>
+            </motion.button>
           </motion.div>
 
           {/* Stats */}
@@ -194,36 +189,6 @@ export default function Hero() {
           </motion.div>
         </div>
       </Container>
-
-      {/* Animated logo card on the right — large screens */}
-      <motion.div
-        initial={{ opacity: 0, x: 60 }}
-        animate={{ opacity: 1, x: 0 }}
-        transition={{ delay: 1, duration: 0.8, ease: 'easeOut' }}
-        className="absolute right-8 top-1/2 -translate-y-1/2 hidden xl:block"
-      >
-        <div className="w-52 rounded-3xl bg-white/10 backdrop-blur-md border border-white/20 p-6 text-center">
-          <img
-            src="/logo/e9e0290c-6285-409c-861c-ff95e3e44a32-2.png"
-            alt="The British School Istanbul"
-            className="h-14 w-auto object-contain mx-auto mb-4 brightness-0 invert"
-          />
-          <p className="text-white/80 text-xs font-semibold leading-snug mb-3">
-            The British School Istanbul
-          </p>
-          <div className="flex justify-center gap-2 text-2xl flex-wrap">
-            {['🎨', '⚽', '🔬', '🎵', '📚'].map((e, i) => (
-              <motion.span
-                key={e}
-                animate={{ y: [0, -6, 0] }}
-                transition={{ duration: 2, repeat: Infinity, delay: i * 0.3 }}
-              >
-                {e}
-              </motion.span>
-            ))}
-          </div>
-        </div>
-      </motion.div>
 
       {/* Scroll hint */}
       <motion.div

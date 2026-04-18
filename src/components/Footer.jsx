@@ -1,7 +1,8 @@
 import { motion } from 'framer-motion'
-import { MapPin, Phone, Mail, Camera, Globe, Play, MessageCircle, ArrowRight } from 'lucide-react'
+import { Camera, Globe, Play, MessageCircle, ArrowRight } from 'lucide-react'
 import { Container } from './UI'
 import { useState } from 'react'
+import { Link } from 'react-router-dom'
 import { useLang } from '../LangContext'
 
 const socialLinks = [
@@ -11,7 +12,7 @@ const socialLinks = [
   { icon: MessageCircle, href: '#', label: 'Twitter' },
 ]
 
-export default function Footer() {
+export default function Footer({ onOpenModal }) {
   const { t } = useLang()
   const footer = t.footer
   const [email, setEmail] = useState('')
@@ -38,14 +39,14 @@ export default function Footer() {
             <p className="mt-3 text-white/70 max-w-xl mx-auto">
               {footer.cta.sub}
             </p>
-            <motion.a
-              href="#kayit"
+            <motion.button
+              onClick={onOpenModal}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.97 }}
               className="inline-flex items-center gap-2 mt-6 px-8 py-4 bg-white text-[#2D5A3F] font-bold rounded-full shadow-xl hover:shadow-2xl transition-shadow cursor-pointer text-lg"
             >
               {footer.cta.btn} <ArrowRight className="w-5 h-5" />
-            </motion.a>
+            </motion.button>
           </motion.div>
         </Container>
       </div>
@@ -81,7 +82,7 @@ export default function Footer() {
 
           {/* Quick Links */}
           <div>
-            <h3 className="font-bold font-[family-name:var(--font-display)] text-lg mb-4">{footer.quickLinks}</h3>
+            <h3 className="font-bold font-[family-name:var(--font-display)] text-lg mb-4 text-left">{footer.quickLinks}</h3>
             <ul className="space-y-2.5">
               {footer.links.map((link) => (
                 <li key={link.label}>
@@ -96,28 +97,48 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Contact */}
+          {/* Campuses */}
           <div>
-            <h3 className="font-bold font-[family-name:var(--font-display)] text-lg mb-4">{footer.contact}</h3>
-            <ul className="space-y-3">
-              <li className="flex items-start gap-3 text-sm text-gray-400">
-                <MapPin className="w-5 h-5 text-emerald-400 flex-shrink-0 mt-0.5" />
-                BISI Kampüsü, Beykoz, İstanbul
-              </li>
-              <li className="flex items-center gap-3 text-sm text-gray-400">
-                <Phone className="w-5 h-5 text-emerald-400 flex-shrink-0" />
-                +90 (212) 555 0123
-              </li>
-              <li className="flex items-center gap-3 text-sm text-gray-400">
-                <Mail className="w-5 h-5 text-emerald-400 flex-shrink-0" />
-                info@bisisummercamp.com
-              </li>
+            <h3 className="font-bold font-[family-name:var(--font-display)] text-lg mb-4 text-left">{footer.campusesTitle}</h3>
+            <ul className="space-y-2.5">
+              {footer.campusLinks.map((link) =>
+                link.external ? (
+                  <li key={link.label}>
+                    <a
+                      href={link.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-gray-400 hover:text-emerald-400 transition-colors text-sm"
+                    >
+                      {link.label}
+                    </a>
+                  </li>
+                ) : link.href.startsWith('#') ? (
+                  <li key={link.label}>
+                    <a
+                      href={link.href}
+                      className="text-gray-400 hover:text-emerald-400 transition-colors text-sm"
+                    >
+                      {link.label}
+                    </a>
+                  </li>
+                ) : (
+                  <li key={link.label}>
+                    <Link
+                      to={link.href}
+                      className="text-gray-400 hover:text-emerald-400 transition-colors text-sm"
+                    >
+                      {link.label}
+                    </Link>
+                  </li>
+                )
+              )}
             </ul>
           </div>
 
           {/* Newsletter */}
           <div className="sm:col-span-2 lg:col-span-1">
-            <h3 className="font-bold font-[family-name:var(--font-display)] text-lg mb-4">{footer.newsletter}</h3>
+            <h3 className="font-bold font-[family-name:var(--font-display)] text-lg mb-4 text-left">{footer.newsletter}</h3>
             <p className="text-gray-400 text-sm mb-4">
               {footer.newsletterSub}
             </p>
