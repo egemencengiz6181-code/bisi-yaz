@@ -34,24 +34,18 @@ function CampusCard({ campus, labels }) {
       onClick={handleCardClick}
       className="relative group bg-white rounded-3xl overflow-hidden shadow-lg shadow-[#2D5A3F]/8 border border-gray-100 hover:shadow-2xl hover:shadow-[#2D5A3F]/15 transition-all duration-400 cursor-pointer"
     >
-      {/* Gradient header */}
-      <div className={`relative h-44 bg-gradient-to-br ${campus.color} flex items-center justify-center overflow-hidden`}>
-        {/* Background pattern */}
-        <div
-          className="absolute inset-0 opacity-10"
-          style={{
-            backgroundImage: 'radial-gradient(circle, rgba(255,255,255,0.8) 1px, transparent 1px)',
-            backgroundSize: '20px 20px',
-          }}
+      {/* Image header */}
+      <div className="relative h-48 overflow-hidden">
+        {/* Campus photo */}
+        <img
+          src={campus.image}
+          alt={campus.name}
+          className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
         />
-        {/* Large emoji */}
-        <motion.span
-          className="text-7xl select-none"
-          animate={{ y: [0, -8, 0], rotate: [0, 3, -3, 0] }}
-          transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut' }}
-        >
-          {campus.emoji}
-        </motion.span>
+        {/* Color gradient overlay */}
+        <div className={`absolute inset-0 bg-gradient-to-br ${campus.color} opacity-40`} />
+        {/* Bottom fade for smooth transition into card body */}
+        <div className="absolute inset-x-0 bottom-0 h-14 bg-gradient-to-t from-white/90 to-transparent" />
 
         {/* Special badge for Zekeriyaköy */}
         {campus.badge && (

@@ -45,6 +45,7 @@ export const tr = {
         tags: ['Spor Tesisleri', 'Yüzme Havuzu', 'STEM Lab'],
         color: 'from-[#2D5A3F] to-[#3D7A56]',
         emoji: '🌳',
+        image: '/okullar/bahcesehir/bahcesehir.jpg',
         externalLink: null,
       },
       {
@@ -55,6 +56,7 @@ export const tr = {
         tags: ['Doğa Yürüyüşü', 'Sanat Atölyesi', 'Müzik'],
         color: 'from-[#233256] to-[#3D5A8A]',
         emoji: '🌿',
+        image: '/okullar/camlica/camlica.jpg',
         externalLink: null,
       },
       {
@@ -65,6 +67,7 @@ export const tr = {
         tags: ['Tenis Kortu', 'Açık Sahalar', 'Kodlama'],
         color: 'from-[#2D5A3F] to-[#233256]',
         emoji: '⛳',
+        image: '/okullar/alkent/alkent.jpg',
         externalLink: null,
       },
       {
@@ -75,6 +78,7 @@ export const tr = {
         tags: ['Özel Program', 'Ormanlık Alan', 'Tam Pansiyon'],
         color: 'from-emerald-600 to-[#2D5A3F]',
         emoji: '🌲',
+        image: '/okullar/zekeriyakoy/zekeriyakoy.jpg',
         externalLink: 'https://www.bisisummer.com',
         badge: 'Özel Lokasyon',
       },
@@ -271,6 +275,7 @@ export const en = {
         tags: ['Sports Facilities', 'Swimming Pool', 'STEM Lab'],
         color: 'from-[#2D5A3F] to-[#3D7A56]',
         emoji: '🌳',
+        image: '/okullar/bahcesehir/bahcesehir.jpg',
         externalLink: null,
       },
       {
@@ -281,6 +286,7 @@ export const en = {
         tags: ['Nature Walks', 'Art Studio', 'Music'],
         color: 'from-[#233256] to-[#3D5A8A]',
         emoji: '🌿',
+        image: '/okullar/camlica/camlica.jpg',
         externalLink: null,
       },
       {
@@ -291,6 +297,7 @@ export const en = {
         tags: ['Tennis Courts', 'Open Fields', 'Coding'],
         color: 'from-[#2D5A3F] to-[#233256]',
         emoji: '⛳',
+        image: '/okullar/alkent/alkent.jpg',
         externalLink: null,
       },
       {
@@ -301,6 +308,7 @@ export const en = {
         tags: ['Exclusive Programme', 'Forest Setting', 'Full Board'],
         color: 'from-emerald-600 to-[#2D5A3F]',
         emoji: '🌲',
+        image: '/okullar/zekeriyakoy/zekeriyakoy.jpg',
         externalLink: 'https://www.bisisummer.com',
         badge: 'Special Location',
       },

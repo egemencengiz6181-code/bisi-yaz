@@ -213,9 +213,19 @@ export default function CampusPage({ campusId }) {
       <Navbar onOpenModal={() => setModalOpen(true)} isCampusPage />
 
       {/* ── Hero ─────────────────────────────────────────────────────── */}
-      <section className={`relative min-h-[72vh] flex items-end bg-gradient-to-br ${campus.color} overflow-hidden`}>
+      <section className="relative min-h-[72vh] flex items-end bg-[#0D1822] overflow-hidden">
+        {/* Background campus photo at low opacity */}
+        {campus.image && (
+          <img
+            src={campus.image}
+            alt={campus.name}
+            className="absolute inset-0 w-full h-full object-cover opacity-20"
+          />
+        )}
+        {/* Dark gradient overlay for text readability */}
+        <div className={`absolute inset-0 bg-gradient-to-br ${campus.color} opacity-85`} />
         <div
-          className="absolute inset-0 opacity-[0.08]"
+          className="absolute inset-0 opacity-[0.05]"
           style={{
             backgroundImage: 'radial-gradient(circle, rgba(255,255,255,0.9) 1px, transparent 1px)',
             backgroundSize: '28px 28px',
@@ -223,47 +233,59 @@ export default function CampusPage({ campusId }) {
         />
         <motion.div
           className="absolute top-[-5rem] right-[-5rem] w-96 h-96 rounded-full blur-3xl pointer-events-none"
-          style={{ background: 'rgba(255,255,255,0.08)' }}
+          style={{ background: 'rgba(255,255,255,0.06)' }}
           animate={{ scale: [1, 1.15, 1], opacity: [0.6, 1, 0.6] }}
           transition={{ duration: 7, repeat: Infinity, ease: 'easeInOut' }}
         />
-        <motion.span
-          className="absolute right-12 top-1/2 -translate-y-1/2 text-[10rem] select-none opacity-20 hidden xl:block"
-          animate={{ y: [0, -20, 0], rotate: [0, 4, -4, 0] }}
-          transition={{ duration: 6, repeat: Infinity, ease: 'easeInOut' }}
-        >
-          {campus.emoji}
-        </motion.span>
 
-        <div className="relative z-10 container mx-auto px-6 md:px-12 pb-16 pt-36">
+        <div className="relative z-10 container mx-auto px-6 md:px-12 pb-16 pt-36 w-full">
           <motion.div initial={{ opacity: 0, x: -16 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.15 }} className="mb-10">
             <Link to="/" className="inline-flex items-center gap-2 text-white/60 hover:text-white text-sm font-semibold transition-colors group">
               <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" />
               {d.backLink}
             </Link>
           </motion.div>
-          <motion.div initial={{ opacity: 0, y: 32 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}>
-            <p className="text-white/45 text-xs tracking-[0.25em] uppercase font-semibold mb-3">BISI Summer School 2026</p>
-            <h1 className="text-5xl sm:text-6xl md:text-8xl font-black text-white leading-none tracking-tight mb-5 text-left">{campus.name}</h1>
-            <div className="flex items-center gap-2 mb-6">
-              <MapPin className="w-4 h-4 text-white/55 flex-shrink-0" />
-              <span className="text-white/65 font-medium text-sm">{campus.district}</span>
-            </div>
-            <p className="text-white/70 text-base md:text-lg max-w-xl leading-relaxed mb-8">{campus.description}</p>
-            <div className="flex flex-wrap gap-2 mb-10">
-              {campus.tags.map((tag) => (
-                <span key={tag} className="px-4 py-1.5 rounded-full bg-white/12 border border-white/20 text-white text-xs font-semibold backdrop-blur-sm">{tag}</span>
-              ))}
-            </div>
-            <motion.button
-              onClick={() => setModalOpen(true)}
-              whileHover={{ scale: 1.04, boxShadow: '0 20px 48px rgba(0,0,0,0.25)' }}
-              whileTap={{ scale: 0.97 }}
-              className="inline-flex items-center gap-2 px-8 py-4 bg-white text-[#2D5A3F] font-bold rounded-full shadow-2xl text-sm tracking-wide cursor-pointer"
-            >
-              {d.heroCta} <ChevronRight className="w-4 h-4" />
-            </motion.button>
-          </motion.div>
+          <div className="flex flex-col lg:flex-row lg:items-end lg:gap-16">
+            {/* Left: text content */}
+            <motion.div className="flex-1" initial={{ opacity: 0, y: 32 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}>
+              <p className="text-white/45 text-xs tracking-[0.25em] uppercase font-semibold mb-3">BISI Summer School 2026</p>
+              <h1 className="text-5xl sm:text-6xl md:text-8xl font-black text-white leading-none tracking-tight mb-5 text-left">{campus.name}</h1>
+              <div className="flex items-center gap-2 mb-6">
+                <MapPin className="w-4 h-4 text-white/55 flex-shrink-0" />
+                <span className="text-white/65 font-medium text-sm">{campus.district}</span>
+              </div>
+              <p className="text-white/70 text-base md:text-lg max-w-xl leading-relaxed mb-8">{campus.description}</p>
+              <div className="flex flex-wrap gap-2 mb-10">
+                {campus.tags.map((tag) => (
+                  <span key={tag} className="px-4 py-1.5 rounded-full bg-white/12 border border-white/20 text-white text-xs font-semibold backdrop-blur-sm">{tag}</span>
+                ))}
+              </div>
+              <motion.button
+                onClick={() => setModalOpen(true)}
+                whileHover={{ scale: 1.04, boxShadow: '0 20px 48px rgba(0,0,0,0.25)' }}
+                whileTap={{ scale: 0.97 }}
+                className="inline-flex items-center gap-2 px-8 py-4 bg-white text-[#2D5A3F] font-bold rounded-full shadow-2xl text-sm tracking-wide cursor-pointer"
+              >
+                {d.heroCta} <ChevronRight className="w-4 h-4" />
+              </motion.button>
+            </motion.div>
+
+            {/* Right: campus image — visible on large screens */}
+            {campus.image && (
+              <motion.div
+                className="hidden lg:block flex-shrink-0 w-80 xl:w-96 pb-2"
+                initial={{ opacity: 0, x: 40 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ delay: 0.35, duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+              >
+                <img
+                  src={campus.image}
+                  alt={campus.name}
+                  className="rounded-3xl object-cover w-full h-72 opacity-65 shadow-2xl shadow-black/40 ring-1 ring-white/15"
+                />
+              </motion.div>
+            )}
+          </div>
         </div>
       </section>
 
