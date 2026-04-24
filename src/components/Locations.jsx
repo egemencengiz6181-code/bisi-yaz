@@ -47,13 +47,6 @@ function CampusCard({ campus, labels }) {
         {/* Bottom fade for smooth transition into card body */}
         <div className="absolute inset-x-0 bottom-0 h-14 bg-gradient-to-t from-white/90 to-transparent" />
 
-        {/* Special badge for Zekeriyaköy */}
-        {campus.badge && (
-          <div className="absolute top-3 right-3 flex items-center gap-1 bg-white/20 backdrop-blur-sm border border-white/30 text-white text-xs font-bold px-3 py-1 rounded-full">
-            <Star className="w-3 h-3 fill-current" />
-            {campus.badge}
-          </div>
-        )}
 
         {/* External link indicator */}
         {isExternal && (

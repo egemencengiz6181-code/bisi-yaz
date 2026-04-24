@@ -7,9 +7,9 @@ import { useLang } from '../LangContext'
 
 /* Campus dropdown items — shared across desktop + mobile */
 const campusLinks = [
-  { label: 'Bahçeşehir', path: '/bahcesehir', external: false },
-  { label: 'Çamlıca',    path: '/camlica',    external: false },
-  { label: 'Alkent',     path: '/alkent',     external: false },
+  { label: 'Alkent',      path: '/alkent',      external: false },
+  { label: 'Bahçeşehir', path: '/bahcesehir',  external: false },
+  { label: 'Çamlıca',    path: '/camlica',     external: false },
   { label: 'Zekeriyaköy', path: 'https://www.bisisummer.com', external: true },
 ]
 

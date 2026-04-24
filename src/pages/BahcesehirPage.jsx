@@ -119,7 +119,7 @@ const content = {
 
   en: {
     backLink: 'Home',
-    heroSub: 'The largest European-side campus with modern facilities and extensive sports areas.',
+    heroSub: 'A vibrant living space where students can discover themselves both academically and socially, surrounded by modern facilities and diverse opportunities',
     heroTags: ['Sports Facilities', 'Swimming Pool', 'STEM Lab'],
     heroDistrict: 'Bahçeşehir, Istanbul',
     heroCta: 'Register Now',
