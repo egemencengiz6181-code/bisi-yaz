@@ -43,7 +43,7 @@ const content = {
     details: [
       { label: 'Yaş Aralığı',     value: '4 – 13 yaş',    sub: 'Yaş grubuna özel programlar' },
       { label: 'Program Süresi',  value: '8 Hafta',         sub: '29 Haziran – 21 Ağustos' },
-      { label: 'Program Saatleri', value: '08:30 – 16:30',  sub: 'Hafta içi, her gün' },
+      { label: 'Program Saatleri', value: '09:00 – 16:00',  sub: 'Hafta içi, her gün' },
     ],
     weeklyNote: 'Haftalık kayıt imkânı mevcuttur.',
 
@@ -131,7 +131,7 @@ const content = {
     details: [
       { label: 'Age Range',       value: '4 – 13 years', sub: 'Age-specific groups' },
       { label: 'Duration',        value: '8 Weeks',       sub: '29 June – 21 August' },
-      { label: 'Programme Hours', value: '08:30 – 16:00', sub: 'Mon–Fri, every day' },
+      { label: 'Programme Hours', value: '09:00 – 16:00', sub: 'Mon–Fri, every day' },
     ],
     weeklyNote: 'Weekly enrolment is available.',
 
