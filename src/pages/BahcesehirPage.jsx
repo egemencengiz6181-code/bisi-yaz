@@ -50,9 +50,8 @@ const content = {
     pricingBadge: '💳 Ücretlendirme',
     pricingTitle: 'Ücret Tablosu',
     pricing: [
-      { label: '1 Hafta',      price: '15.000 ₺', tag: null,        tagStyle: '' },
-      { label: '2 Hafta',      price: '25.000 ₺', tag: 'Önerilen',  tagStyle: 'bg-[#2D5A3F]' },
-      { label: '+ Her 2 Hafta', price: '− 5.000 ₺', tag: 'Ek İndirim', tagStyle: 'bg-[#233256]' },
+      { label: '1 Hafta', price: '15.000 ₺', tag: null,       tagStyle: '' },
+      { label: '2 Hafta', price: '25.000 ₺', tag: 'Önerilen', tagStyle: 'bg-[#2D5A3F]' },
     ],
     earlyBirdTitle: 'Erken Kayıt Avantajları',
     earlyBirdMonthLabel: 'Kayıt Ayı',
@@ -68,11 +67,11 @@ const content = {
     englishTime: '09:00 – 12:00',
     englishDesc: 'Speaking, Listening, Reading, Writing, Drama',
     englishNote: 'BIS Schools yabancı öğretmen kadrosu ile yürütülmektedir.',
-    lunchTitle: 'Öğle Yemeği',
-    lunchTime: '12:30 – 13:30',
+    lunchTitle: 'Öğle Yemeği & Mola',
+    lunchTime: '12:00 – 13:00',
     lunchDesc: 'Kahvaltı hizmeti sunulmaktadır. Öğle yemeği program kapsamında karşılanmaktadır.',
     sportsTitle: 'Spor Aktiviteleri',
-    sportsTime: '13:30 – 16:30',
+    sportsTime: '13:00 – 16:00',
     sportsTags: ['Basketbol', 'Voleybol', 'Jimnastik', 'Yüzme', 'Satranç'],
     sportsNote: (
       <>
@@ -83,22 +82,23 @@ const content = {
       </>
     ),
     tripsTitle: 'Dış Gezi Etkinlikleri',
-    tripsTime: '13:30 – 16:30 kapsamında',
+    tripsTime: '13:00 – 16:00',
     tripsTags: ['At Biniciliği', 'Parkur Aktiviteleri', 'Müze Gezileri'],
 
     scheduleBadge: '📅 Örnek Günlük Program',
     scheduleTitle: 'Günlük Ders Programı',
     schedule: [
-      { time: '08:30 – 09:00', activity: 'Karşılama & Kahvaltı',                 emoji: '🥐' },
-      { time: '09:00 – 10:30', activity: 'İngilizce (Speaking & Listening)',      emoji: '🗣️' },
-      { time: '10:30 – 10:45', activity: 'Ara',                                   emoji: '☕' },
-      { time: '10:45 – 12:00', activity: 'İngilizce (Reading & Writing / Drama)', emoji: '📖' },
-      { time: '12:00 – 12:30', activity: 'Dinlenme & Serbest Oyun',               emoji: '🌿' },
-      { time: '12:30 – 13:30', activity: 'Öğle Yemeği',                           emoji: '🍽️' },
-      { time: '13:30 – 14:30', activity: 'Spor Aktivitesi',                       emoji: '🏃' },
-      { time: '14:30 – 15:15', activity: 'Yaratıcı Atölye / Satranç',             emoji: '♟️' },
-      { time: '15:15 – 15:30', activity: 'Ara',                                   emoji: '☕' },
-      { time: '15:30 – 16:30', activity: 'Etkinlik / Oyun / Dış Gezi',            emoji: '🌍' },
+      { time: '08:30 – 09:00', activity: 'Karşılama',                              emoji: '🙋' },
+      { time: '09:00 – 09:45', activity: 'Kahvaltı & Toplantı',                   emoji: '🥐' },
+      { time: '09:45 – 10:45', activity: 'Yoğun İngilizce',                       emoji: '📚' },
+      { time: '10:45 – 11:00', activity: 'Ara',                                   emoji: '☕' },
+      { time: '11:00 – 12:00', activity: 'Yoğun İngilizce',                       emoji: '📖' },
+      { time: '12:00 – 13:00', activity: 'Öğle Yemeği & Mola',                   emoji: '🍽️' },
+      { time: '13:00 – 13:45', activity: 'Aktivite Zamanı',                       emoji: '🏃' },
+      { time: '13:45 – 14:00', activity: 'Ara',                                   emoji: '☕' },
+      { time: '14:00 – 14:45', activity: 'Aktivite Zamanı',                       emoji: '⚽' },
+      { time: '14:45 – 15:15', activity: 'Atıştırmalık & Ara',                   emoji: '🍎' },
+      { time: '15:15 – 16:00', activity: 'Aktivite Zamanı',                       emoji: '🌍' },
     ],
 
     weeklyBadge: '🗓️ Haftalık Tema Programı',
@@ -106,14 +106,14 @@ const content = {
     weeklySub: 'Her hafta farklı bir tema etrafında şekillenen zengin bir deneyim.',
     weekLabel: 'Hafta',
     weeklyThemes: [
-      { theme: 'Tanışma & Uyum',       content: 'Okula adaptasyon, arkadaşlık, temel İngilizce iletişim' },
-      { theme: 'Spor & Takım Ruhu',    content: 'Takım oyunları, iş birliği ve liderlik' },
-      { theme: 'Sanat & Yaratıcılık',  content: 'Resim, el sanatları, drama çalışmaları' },
-      { theme: 'Bilim & Keşif',        content: 'Deneyler, keşif aktiviteleri, problem çözme' },
-      { theme: 'Doğa & Çevre',         content: 'Doğa gezileri, çevre bilinci ve sürdürülebilirlik' },
-      { theme: 'Kültür & Dünya',       content: 'Farklı ülkeler, kültürler ve yaşam tarzları' },
-      { theme: 'Hareket & Performans', content: 'Dans, jimnastik, sahne çalışmaları' },
-      { theme: 'Final & Festival',     content: 'Gösteriler, sunumlar ve kapanış etkinliği' },
+      { theme: 'Hayatta Kalma Haftası',   content: '29 Haz – 3 Tem • Survivor yarışması, takım ruhu ve macera aktiviteleri' },
+      { theme: 'Yeşile Dön Haftası',      content: '6 – 10 Tem • Doğa gezileri, çevre bilinci ve sürdürülebilirlik etkinlikleri' },
+      { theme: 'Sihir Haftası',           content: '13 – 17 Tem • Sihir gösterisi, yaratıcı atölyeler ve eğlenceli deneyler' },
+      { theme: 'Boya Şenliği Haftası',    content: '20 – 24 Tem • Boya splash partisi, resim ve yaratıcı sanat çalışmaları' },
+      { theme: 'Harika Hayvanlar Haftası', content: '27 – 31 Tem • Akvaryum gezisi, hayvan temalı projeler ve doğa keşfi' },
+      { theme: 'Uzay Haftası',            content: '3 – 7 Ağu • Uzay kampı, bilim deneyleri ve astronomi aktiviteleri' },
+      { theme: 'Zaman Yolcusu Haftası',   content: '10 – 14 Ağu • Tarih yolculuğu, kültürel keşifler ve drama çalışmaları' },
+      { theme: 'Kendimizi Kutluyoruz',    content: '17 – 21 Ağu • Kostüm partisi, su şenliği ve kapanış töreni' },
     ],
   },
 
@@ -131,16 +131,15 @@ const content = {
     details: [
       { label: 'Age Range',       value: '4 – 13 years', sub: 'Age-specific groups' },
       { label: 'Duration',        value: '8 Weeks',       sub: '29 June – 21 August' },
-      { label: 'Programme Hours', value: '08:30 – 16:30', sub: 'Mon–Fri, every day' },
+      { label: 'Programme Hours', value: '08:30 – 16:00', sub: 'Mon–Fri, every day' },
     ],
     weeklyNote: 'Weekly enrolment is available.',
 
     pricingBadge: '💳 Pricing',
     pricingTitle: 'Fee Schedule',
     pricing: [
-      { label: '1 Week',           price: '15,000 ₺', tag: null,          tagStyle: '' },
-      { label: '2 Weeks',          price: '25,000 ₺', tag: 'Recommended', tagStyle: 'bg-[#2D5A3F]' },
-      { label: '+ Every 2 Weeks', price: '− 5,000 ₺', tag: 'Extra Discount', tagStyle: 'bg-[#233256]' },
+      { label: '1 Week', price: '15,000 ₺', tag: null,          tagStyle: '' },
+      { label: '2 Weeks', price: '25,000 ₺', tag: 'Recommended', tagStyle: 'bg-[#2D5A3F]' },
     ],
     earlyBirdTitle: 'Early Enrolment Benefits',
     earlyBirdMonthLabel: 'Enrolment Month',
@@ -156,11 +155,11 @@ const content = {
     englishTime: '09:00 – 12:00',
     englishDesc: 'Speaking, Listening, Reading, Writing, Drama',
     englishNote: "Delivered by BIS Schools' foreign teacher staff.",
-    lunchTitle: 'Lunch',
-    lunchTime: '12:30 – 13:30',
+    lunchTitle: 'Lunch & Break Time',
+    lunchTime: '12:00 – 13:00',
     lunchDesc: 'Breakfast is provided. Lunch is included in the programme.',
     sportsTitle: 'Sports Activities',
-    sportsTime: '13:30 – 16:30',
+    sportsTime: '13:00 – 16:00',
     sportsTags: ['Basketball', 'Volleyball', 'Gymnastics', 'Swimming', 'Chess'],
     sportsNote: (
       <>
@@ -172,22 +171,23 @@ const content = {
       </>
     ),
     tripsTitle: 'Field Trips',
-    tripsTime: 'Within 13:30 – 16:30',
+    tripsTime: '13:00 – 16:00',
     tripsTags: ['Horse Riding', 'Parcour Activities', 'Museum Visits'],
 
     scheduleBadge: '📅 Sample Daily Schedule',
     scheduleTitle: 'Daily Lesson Schedule',
     schedule: [
-      { time: '08:30 – 09:00', activity: 'Welcome & Breakfast',                    emoji: '🥐' },
-      { time: '09:00 – 10:30', activity: 'English (Speaking & Listening)',          emoji: '🗣️' },
-      { time: '10:30 – 10:45', activity: 'Break',                                   emoji: '☕' },
-      { time: '10:45 – 12:00', activity: 'English (Reading & Writing / Drama)',     emoji: '📖' },
-      { time: '12:00 – 12:30', activity: 'Rest & Free Play',                        emoji: '🌿' },
-      { time: '12:30 – 13:30', activity: 'Lunch',                                   emoji: '🍽️' },
-      { time: '13:30 – 14:30', activity: 'Sports Activity',                         emoji: '🏃' },
-      { time: '14:30 – 15:15', activity: 'Creative Workshop / Chess',               emoji: '♟️' },
-      { time: '15:15 – 15:30', activity: 'Break',                                   emoji: '☕' },
-      { time: '15:30 – 16:30', activity: 'Activity / Games / Field Trip',           emoji: '🌍' },
+      { time: '08:30 – 09:00', activity: 'Welcome',                                  emoji: '🙋' },
+      { time: '09:00 – 09:45', activity: 'Breakfast & Assembly',                    emoji: '🥐' },
+      { time: '09:45 – 10:45', activity: 'Intensive English',                       emoji: '📚' },
+      { time: '10:45 – 11:00', activity: 'Break Time',                              emoji: '☕' },
+      { time: '11:00 – 12:00', activity: 'Intensive English',                       emoji: '📖' },
+      { time: '12:00 – 13:00', activity: 'Lunch & Break Time',                      emoji: '🍽️' },
+      { time: '13:00 – 13:45', activity: 'Activity Time',                           emoji: '🏃' },
+      { time: '13:45 – 14:00', activity: 'Break Time',                              emoji: '☕' },
+      { time: '14:00 – 14:45', activity: 'Activity Time',                           emoji: '⚽' },
+      { time: '14:45 – 15:15', activity: 'Snack & Break Time',                      emoji: '🍎' },
+      { time: '15:15 – 16:00', activity: 'Activity Time',                           emoji: '🌍' },
     ],
 
     weeklyBadge: '🗓️ Weekly Theme Programme',
@@ -195,14 +195,14 @@ const content = {
     weeklySub: 'A rich experience shaped around a different theme each week.',
     weekLabel: 'Week',
     weeklyThemes: [
-      { theme: 'Meet & Settle',       content: 'School adaptation, friendships, basic English communication' },
-      { theme: 'Sports & Team Spirit', content: 'Team games, collaboration and leadership' },
-      { theme: 'Arts & Creativity',   content: 'Painting, crafts, drama workshops' },
-      { theme: 'Science & Discovery', content: 'Experiments, discovery activities, problem solving' },
-      { theme: 'Nature & Environment', content: 'Nature walks, environmental awareness and sustainability' },
-      { theme: 'Culture & World',     content: 'Different countries, cultures and lifestyles' },
-      { theme: 'Movement & Performance', content: 'Dance, gymnastics, stage work' },
-      { theme: 'Final & Festival',    content: 'Performances, presentations and closing ceremony' },
+      { theme: 'Survival Week',            content: '29 Jun – 3 Jul • Survivor competition, team spirit and adventure activities' },
+      { theme: 'Go Green Week',            content: '6 – 10 Jul • Nature trips, environmental awareness and sustainability' },
+      { theme: 'Magic Week',               content: '13 – 17 Jul • Magic show, creative workshops and fun experiments' },
+      { theme: 'Paint Splash Week',        content: '20 – 24 Jul • Paint splash party, art and creative workshops' },
+      { theme: 'Amazing Animals Week',     content: '27 – 31 Jul • Aquarium trip, animal-themed projects and nature discovery' },
+      { theme: 'Space Week',               content: '3 – 7 Aug • Space camp, science experiments and astronomy activities' },
+      { theme: "Time Traveller's Week",    content: '10 – 14 Aug • Historical journey, cultural discoveries and drama workshops' },
+      { theme: 'Celebrating Ourselves',    content: '17 – 21 Aug • Costume party, water splash party and closing ceremony' },
     ],
   },
 }
@@ -354,7 +354,7 @@ export default function BahcesehirPage() {
             <h2 className="text-3xl md:text-4xl font-extrabold text-[#233256]">{d.pricingTitle}</h2>
           </motion.div>
 
-          <div className="grid md:grid-cols-3 gap-5 mb-10">
+          <div className="grid sm:grid-cols-2 gap-5 max-w-xl mx-auto mb-10">
             {d.pricing.map((p, i) => (
               <motion.div
                 key={p.label}
@@ -363,13 +363,13 @@ export default function BahcesehirPage() {
                 initial="hidden"
                 whileInView="visible"
                 viewport={{ once: true }}
-                className={`relative rounded-2xl p-6 border text-center ${p.tag === d.pricing[1].tag ? 'border-[#2D5A3F] shadow-lg shadow-[#2D5A3F]/10 bg-[#EEF5F0]' : 'border-gray-100 bg-white shadow-sm'}`}
+                className={`relative rounded-2xl p-6 border text-center ${p.tag ? 'border-[#2D5A3F] shadow-lg shadow-[#2D5A3F]/10 bg-[#EEF5F0]' : 'border-gray-100 bg-white shadow-sm'}`}
               >
                 {p.tag && (
                   <span className={`absolute -top-3 left-1/2 -translate-x-1/2 ${p.tagStyle} text-white text-[10px] font-bold px-3 py-1 rounded-full tracking-wide`}>{p.tag}</span>
                 )}
                 <p className="text-xs text-[#4D6359] font-semibold uppercase tracking-wide mb-2">{p.label}</p>
-                <p className={`text-3xl font-black ${i === 2 ? 'text-[#2D5A3F]' : 'text-[#233256]'}`}>{p.price}</p>
+                <p className="text-3xl font-black text-[#233256]">{p.price}</p>
               </motion.div>
             ))}
           </div>
